@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alnoukan <alnoukan@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/30 12:19:39 by alnoukan          #+#    #+#             */
+/*   Updated: 2026/06/30 12:20:52 by alnoukan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
 int	check_multiple(char *base)
@@ -28,14 +40,8 @@ int	base_check(char *base)
 		return (-1);
 	i = 0;
 	while (base[i])
-	{
-		if ((base[i] >= '0' && base[i] <= '9') || (base[i] >= 'a'
-				&& base[i] <= 'f'))
-			i++;
-		else
-			return (-1);
-	}
-	if (i > 16 || i < 2)
+		i++;
+	if (i < 2)
 		return (-1);
 	return (i);
 }
@@ -71,24 +77,7 @@ void	long_putnbr(long nbr, char *base)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int	base_len;
-
-	base_len = base_check(base);
-	if (base_len < 0)
+	if (base_check(base) < 0)
 		return ;
-	if (nbr < 0)
-	{
-		ft_putchar('-');
-		ft_putnbr_base(nbr * -1, base);
-	}
-	else
-	{
-		if (nbr < base_len)
-			ft_putchar(base[nbr % base_len]);
-		else
-		{
-			ft_putnbr_base(nbr / base_len, base);
-			ft_putchar(base[nbr % base_len]);
-		}
-	}
+	long_putnbr((long)nbr, base);
 }

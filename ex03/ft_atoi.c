@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anoukan <alnoukan@student.42lausanne.ch>   +#+  +:+       +#+        */
+/*   By: alnoukan <alnoukan@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 23:29:14 by anoukan           #+#    #+#             */
-/*   Updated: 2026/06/24 23:49:05 by anoukan          ###   ########.fr       */
+/*   Updated: 2026/06/30 12:22:14 by alnoukan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int	ft_atoi(char *str)
 			sign *= -1;
 		i++;
 	}
-	if (str[i] && (str[i] == '+' || str[i] == '-'))
-		i++;
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
 		res = res * 10 + (str[i] - '0');
